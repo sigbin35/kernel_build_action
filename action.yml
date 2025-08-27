@@ -33,7 +33,7 @@ inputs:
   config:
     description: 'configuration for building android kernel'
     required: true
-    default: vendor/c2q_kor_singlew_defconfig
+    default: c2q_kor_singlew_defconfig
   arch:
     required: true
     default: arm64
