@@ -33,8 +33,8 @@ jobs:
           kernel-branch: main
           config: c2q_kor_singlew_defconfig
           arch: arm64
-          aosp-gcc: https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9.git -lineage-19.1
-          aosp-clang: https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone.git -b 13 
+          aosp-gcc: https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 -lineage-19.1
+          aosp-clang: https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone -b 13 
           ksu: false
           ksu-version: main
           android-version: 13
