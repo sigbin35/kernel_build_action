@@ -215,7 +215,7 @@ runs:
                  export NEED_GCC=1
              fi
          else
-             "SU" apt install clang lld binutils-aarch64-linux-gnu binutils-arm-linux-gnuabeihf -y
+             "SU" apt install clang lld binutils-aarch64-linux-gnu -y
          fi
          echo "::endgroup::"
 
@@ -223,11 +223,9 @@ runs:
              echo "::group:: Downloading AOSP GCC"
              if [ ! -z ${{ inputs.android-version }} ]; then
                  export AOSP_GCC64_URL="https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9"
-                 export AOSP_GCC32_URL="https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9"
                  export AOSP_GCC_BRANCH="android${{ inputs.android-version }}-release"
              else
                  export AOSP_GCC64_URL="https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/refs/tags/android-12.1.0_r27.tar.gz"
-                 export AOSP_GCC32_URL="https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/+archive/refs/tags/android-12.1.0_r27.tar.gz"
              fi
              download_and_extract "$AOSP_GCC64_URL" "gcc-aarch64" "$HOME/gcc-64" "$AOSP_GCC_BRANCH"
              download_and_extract "$AOSP_GCC32_URL" "gcc-arm" "$HOME/gcc-32" "$AOSP_GCC_BRANCH"
