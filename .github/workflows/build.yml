@@ -30,7 +30,7 @@ jobs:
       with:
           kernel-url: https://github.com/sigbin35/android_device_samsung_c2q_stock_kernel
           kernel-dir: kernel
-          kernel-branch: main
+          kernel-branch: sigbin35-patch-1
           config: c2q_kor_singlew_defconfig
           arch: arm64
           aosp-gcc: https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 lineage-19.1
