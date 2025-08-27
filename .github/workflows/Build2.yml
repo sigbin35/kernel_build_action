@@ -1,0 +1,43 @@
+name: CI
+on:
+  push:
+    branches: main
+    paths:
+      - '.github/workflows/main.yml'
+      - 'action.yml'
+
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  ci-test:
+    name: Build Kernel
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v5
+      with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+
+    - name: Build Kernel
+      uses: ./
+      with:
+          kernel-url: https://github.com/sigbin35/android_device_samsung_c2q_stock_kernel
+          kernel-dir: kernel
+          kernel-branch: main
+          config: c2q_kor_singlew_defconfig
+          arch: arm64
+          aosp-gcc: https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9.git -lineage-19.1
+          aosp-clang: https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone.git -b 13 
+          ksu: false
+          ksu-version: main
+          android-version: 13
+          aosp-clang-version: r433403b
+          disable-lto: true
+          anykernel3: true
