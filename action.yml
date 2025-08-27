@@ -109,7 +109,7 @@ inputs:
     default: false
   aosp-clang-version:
     required: false
-    default: "r383902"
+    default: "r433403b"
   other-clang-url:
     required: false
   other-clang-branch:
